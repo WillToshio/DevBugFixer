@@ -1,0 +1,13 @@
+  header {
+    border-bottom: 1px solid var(--cmd-text-dim);
+    padding: 15px 0;
+}
+
+header h1 {
+    color: var(--cmd-header);
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    font-size: 1.8rem;
+    text-shadow: 0 0 5px var(--cmd-text);
+}

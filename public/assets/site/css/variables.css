@@ -1,0 +1,10 @@
+/* Paleta de cores do CMD */
+:root {
+    --cmd-bg: #000000;
+    --cmd-text: #00FF00;
+    --cmd-text-bright: #33FF33;
+    --cmd-text-dim: #00AA00;
+    --cmd-header: #00FF00;
+    --cmd-border: #00AA00;
+    --cmd-error: #FF0000;
+}
