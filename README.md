@@ -45,8 +45,8 @@ DevBugFixer é uma ferramenta que simula um ambiente de terminal para desenvolve
 - JavaScript
 - jQuery
 - Font Awesome
-- PHP 7.4
-- Codegniter 4.1
+- PHP 7.4.26
+- Codegniter 4.1.9
 
 ---
 
@@ -63,9 +63,9 @@ DevBugFixer é uma ferramenta que simula um ambiente de terminal para desenvolve
 
 ## 📎 Links Úteis
 
-- [Repositório no GitHub](https://github.com/WillToshio/DevBugFixer)
 - [Relatar Bug / Sugestões](https://github.com/WillToshio/DevBugFixer/issues)
-- Licença: MIT
+- [Licença: MIT](https://mit-license.org/)
+- [CodeIgniter](https://www.codeigniter.com/)
 
 ---
 

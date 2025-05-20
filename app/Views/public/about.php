@@ -23,7 +23,9 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                    <h1 class="logo-text mb-0 fs-4">DevBugFixer<span class="cursor-blink"></span></h1>
+                    <a class="text-decoration-none" href="<?= base_url() ?>">
+                        <h1 class="logo-text mb-0 fs-4">DevBugFixer<span class="cursor-blink"></span></h1>
+                    </a>
                 </div>
                 <div class="d-flex">
                     <a href="https://github.com/WillToshio" target="balnk" class="text-secondary me-3 footer-link">
@@ -243,6 +245,17 @@
                     <div class="tech-icon bg-primary text-white">FA</div>
                     <span class="text-light">Font Awesome</span>
                 </div>
+
+                <div class="tech-badge">
+                    <div class="tech-icon bg-primary text-white">php</div>
+                    <span class="text-light">PHP</span>
+                </div>
+
+                <div class="tech-badge">
+                    <div class="tech-icon bg-danger text-white">CI</div>
+                    <span class="text-light">CodeIgniter 4</span>
+                </div>
+
             </div>
         </section>
 
