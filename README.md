@@ -1,56 +1,75 @@
-# CodeIgniter 4 Framework
+# 🐛 DevBugFixer
 
-## What is CodeIgniter?
+DevBugFixer é uma ferramenta interativa criada para desenvolvedores que enfrentam bugs diariamente. Inspirado na estética de terminais como o CMD, ele proporciona um ambiente visual retrô e prático para testar, simular e registrar problemas e soluções com foco em produtividade e aprendizado.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+---
 
-This repository holds the distributable version of the framework,
-including the user guide. It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🎯 O que é o DevBugFixer?
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+DevBugFixer é uma ferramenta que simula um ambiente de terminal para desenvolvedores interagirem com possíveis bugs e suas soluções. Ele fornece uma interface visual que combina a praticidade de uma linha de comando com elementos modernos de design e sugestões inteligentes.
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+---
 
+## 🔧 Funcionalidades
 
-## Important Change with index.php
+- ✅ Terminal interativo simulado com aparência retrô (CMD-style)
+- 💡 Sugestões de correções baseadas em boas práticas
+- 🖥️ Testes rápidos com histórico de comandos
+- 🌐 Interface responsiva e amigável
+- 📜 Animação de cursor tipo terminal (`█`) piscando
+- 👥 Organização clara para uso por desenvolvedores e testadores
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+---
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## 🚀 Vantagens
 
-**Please** read the user guide for a better explanation of how CI4 works!
+- **Acelera a depuração**: simule comandos e registre falhas para analisar melhor
+- **Ensina enquanto resolve**: mostre soluções com explicações curtas
+- **Ambiente focado**: sem distrações, com visual inspirado em terminais
+- **Ideal para testes rápidos**: não é preciso rodar um projeto inteiro
 
-## Repository Management
+---
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## 👥 Público-Alvo
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+- Desenvolvedores backend/frontend
+- Estudantes de programação
+- Testadores de QA
 
-## Contributing
+---
 
-We welcome contributions from the community.
+## 🛠️ Tecnologias Utilizadas
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+- HTML5
+- CSS3
+- JavaScript
+- jQuery
+- Font Awesome
+- PHP 7.4
+- Codegniter 4.1
 
-## Server Requirements
+---
 
-PHP version 7.3 or higher is required, with the following extensions installed:
+## 📦 Status do Projeto
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+🚧 **Em desenvolvimento ativo**
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### Funcionalidades Futuras:
+- [ ] Histórico de comandos persistente
+- [ ] Modo noturno configurável
+- [ ] Exportação dos logs de depuração
 
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+---
+
+## 📎 Links Úteis
+
+- [Repositório no GitHub](https://github.com/WillToshio/DevBugFixer)
+- [Relatar Bug / Sugestões](https://github.com/WillToshio/DevBugFixer/issues)
+- Licença: MIT
+
+---
+
+## ✒️ Autor
+
+Feito com ❤️ por **mim**  
+Entre em contato no [LinkedIn](https://www.linkedin.com/in/williantoshiocorr%C3%AAa/) ou contribua no repositório!

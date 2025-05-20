@@ -1,6 +1,182 @@
-@import url("variables.css");
-@import url("base.css");
-@import url("header.css");
-@import url("components.css");
-@import url("syntax.css");
-@import url("footer.css");
+/* Paleta de cores do CMD */
+:root {
+    --cmd-bg: #000000;
+    --cmd-text: #00FF00;
+    --cmd-text-bright: #33FF33;
+    --cmd-text-dim: #00AA00;
+    --cmd-header: #00FF00;
+    --cmd-border: #00AA00;
+    --cmd-error: #FF0000;
+}
+
+body {
+    background-color: var(--cmd-bg);
+    color: var(--cmd-text);
+    font-family: 'Consolas', 'Courier New', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+
+/* Esconder scrollbars padrão mas manter funcionalidade */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cmd-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cmd-text-dim);
+}
+
+  header {
+    border-bottom: 1px solid var(--cmd-text-dim);
+    padding: 15px 0;
+}
+
+header h1 {
+    color: var(--cmd-header);
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    font-size: 1.8rem;
+    text-shadow: 0 0 5px var(--cmd-text);
+}
+/* Área de texto estilo CMD com cursor piscante */
+.cmd-textarea {
+    background-color: var(--cmd-bg);
+    color: var(--cmd-text);
+    border: 1px solid var(--cmd-text-dim);
+    padding: 15px;
+    width: 100%;
+    min-height: 200px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    resize: vertical;
+    position: relative;
+    overflow: auto;
+}
+
+.cmd-textarea:focus {
+    outline: none;
+    border-color: var(--cmd-text-bright);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Cursor piscante do CMD */
+.cmd-textarea::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 18px;
+    background-color: var(--cmd-text);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Botão estilo CMD */
+.cmd-button {
+    background-color: var(--cmd-bg);
+    color: var(--cmd-text-bright);
+    border: 1px solid var(--cmd-text);
+    padding: 8px 25px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    margin: 20px 0;
+}
+
+.cmd-button:hover {
+    background-color: var(--cmd-text-dim);
+    color: var(--cmd-bg);
+}
+
+/* Seções de resultado */
+.cmd-section {
+    border: 1px solid var(--cmd-text-dim);
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.cmd-section-header {
+    border-bottom: 1px solid var(--cmd-text-dim);
+    padding: 8px 15px;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.cmd-section-title {
+    color: var(--cmd-text-bright);
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.cmd-section-content {
+    padding: 15px;
+}
+
+/* Área de código */
+.cmd-code {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--cmd-text-dim);
+    padding: 15px;
+    overflow-x: auto;
+    position: relative;
+}
+
+/* Cursor piscante simulado para a área de código */
+.cmd-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-color: var(--cmd-text);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+.cmd-comment { color: var(--cmd-text-dim); }
+.cmd-keyword { color: var(--cmd-text-bright); }
+.cmd-function { color: #FFFF00; }
+.cmd-error { color: var(--cmd-error); text-decoration: wavy underline; }
+
+footer {
+    border-top: 1px solid var(--cmd-text-dim);
+    padding: 15px 0;
+    text-align: center;
+}
+
+footer a {
+    color: var(--cmd-text);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: var(--cmd-text-bright);
+    text-decoration: underline;
+}
+.main-content {
+    flex: 1;
+    padding: 20px 0;
+}
+
+h2 {
+    color: var(--cmd-text);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}

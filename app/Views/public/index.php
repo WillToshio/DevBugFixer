@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-  <link rel="shortcut icon" type="image/png" href="<?= base_url() ?>/icon.ico" />
+    <link rel="icon" type="image/png" href="<?= base_url() ?>/icon.ico" />
     <title>DevBugFixer</title>
     <!-- CSS -->
      <link
@@ -98,9 +98,9 @@
     <!-- Rodapé -->
     <footer>
         <div class="container">
-            <a href="#">C:\> GitHub do projeto</a>
+            <a href="https://github.com/WillToshio/DevBugFixer" target="blank">C:\> GitHub do projeto</a>
             <span class="d-none d-sm-inline">|</span>
-            <a href="#">C:\> Sobre o DevBugFixer</a>
+            <a href="<?= base_url('/about');?>">C:\> Sobre o DevBugFixer</a>
         </div>
     </footer>
 

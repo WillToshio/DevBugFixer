@@ -1,0 +1,212 @@
+:root {
+    --cmd-bg: #000000;
+    --cmd-bg-secondary: #0D1117;
+    --cmd-bg-card: #1E1E1E;
+    --cmd-text: #00FF00;
+    --cmd-text-bright: #39FF14;
+    --cmd-text-dim: #00AA00;
+    --cmd-border: #2D333B;
+    --cmd-yellow: #FFFF00;
+    --cmd-blue: #007BFF;
+    --cmd-purple: #9966FF;
+    --cmd-red: #FF3333;
+}
+
+body {
+    background-color: var(--cmd-bg);
+    color: var(--cmd-text);
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+    line-height: 1.6;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cmd-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4d565f;
+}
+
+/* Header styling */
+.cmd-header {
+    background-color: var(--cmd-bg-secondary);
+    border-bottom: 1px solid var(--cmd-text-dim);
+}
+
+.logo-text {
+    color: var(--cmd-text-bright);
+    font-weight: bold;
+}
+
+/* Blinking cursor */
+.cursor-blink {
+    display: inline-block;
+    width: 12px;
+    height: 20px;
+    background-color: var(--cmd-text);
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Terminal window styling */
+.terminal-window {
+    background-color: var(--cmd-bg-secondary);
+    border: 1px solid var(--cmd-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: var(--cmd-bg-card);
+    padding: 8px 15px;
+    border-bottom: 1px solid var(--cmd-border);
+}
+
+.terminal-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-content {
+    padding: 20px;
+}
+
+/* Section styling */
+.section-title {
+    color: var(--cmd-text-bright);
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.section-icon {
+    margin-right: 10px;
+    color: var(--cmd-text-bright);
+}
+
+/* Card styling */
+.cmd-card {
+    background-color: var(--cmd-bg-card);
+    border: 1px solid var(--cmd-border);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.cmd-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.1);
+}
+
+.feature-card {
+    border-left-width: 4px;
+}
+
+.border-green {
+    border-left-color: var(--cmd-text);
+}
+
+.border-yellow {
+    border-left-color: var(--cmd-yellow);
+}
+
+.border-blue {
+    border-left-color: var(--cmd-blue);
+}
+
+.border-purple {
+    border-left-color: var(--cmd-purple);
+}
+
+.border-red {
+    border-left-color: var(--cmd-red);
+}
+
+/* Tech badge styling */
+.tech-badge {
+    background-color: var(--cmd-bg-card);
+    border: 1px solid var(--cmd-border);
+    border-radius: 6px;
+    padding: 8px 15px;
+    display: inline-flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.tech-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Footer styling */
+.cmd-footer {
+    background-color: var(--cmd-bg-secondary);
+    border-top: 1px solid var(--cmd-border);
+}
+
+.footer-link {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--cmd-text);
+}
+
+/* Audience icon styling */
+.audience-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+/* Status badge */
+.status-badge {
+    background-color: rgba(255, 204, 0, 0.2);
+    color: #FFCC00;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Checkbox styling */
+.cmd-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--cmd-border);
+    border-radius: 3px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
