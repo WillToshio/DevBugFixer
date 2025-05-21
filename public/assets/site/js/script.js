@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    app.form = {
+        path : {
+            queryError: app.baseUrl + '/query-error', 
+        },
+        el:{
+            errorMessageForm: $('.app-error-message-form .main-content .error-query-form'),
+        }
+    }
+
     const $textarea = $('.cmd-textarea');
     const prompt = 'C:\\> ';
 
@@ -32,4 +41,11 @@ $(document).ready(function () {
             this.selectionStart = this.selectionEnd = prompt.length;
         }
     });
+
+    app.form.el.errorMessageForm.on('submit',() => {
+        var formData = {
+            prompt: $('.cmd-textarea').text(),
+        };
+        console.log(formData);
+    })
 });

@@ -150,4 +150,5 @@ database.default.DBPrefix =
 # API
 #--------------------------------------------------------------------
 
-# secretKey = 'put your secret key'
+# openAIURL = 'https://api.openai.com/v1/'
+# openAISecretKey  = 'put your secret key'
