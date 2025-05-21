@@ -2,64 +2,47 @@
 
 namespace App\Services;
 
-class OpenAIServices {
-    /**
-     * Summary of client
-     * @object
-     * get a curlrequest class 
-     */
-    protected $client;
-    /**
-     * Summary of apiKey
-     * @string 
-     * get a apikey value
-     */
-    protected $apiKey;
-    /**
-     * Summary of headers
-     * @array
-     */
-    protected $headers;
-    /**
-     * Summary of api_url
-     * @string
-     * get url value
-     */
-    protected $api_url;
+use App\Services\BaseAIServices;
 
+class OpenAIServices extends BaseAIServices {
     /**
      * Summary of __construct
      * get apiKey value from env and
      * start value of api url
      * save curl client on local variable
      */
+    private array $validModels =['gpt-4.1', 'gpt-3.5-turbo'];
+
     public function __construct(){
-        $this->api_url = getenv('openAIURL');
-        $this->apiKey = getenv('openAISecretKey');
-        $this->client = \Config\Services::curlrequest(); 
+        parent::__construct(getenv('openAIURL'), getenv('openAISecretKey'), \Config\Services::curlrequest(),  $this->getHeaders());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function getHeaders(): array{
-        $this->headers = [
-            'Authorization' => "Barear {$this->apiKey}", 
+        return [
+            'Authorization' => "Bearer {$this->apiKey}", 
             'Content-Type' => 'application/json',
         ];
-        return $this->headers;
     }
 
-    public function chatCompletions(string $prompt, string $model = 'gpt-4'){
-        $response = $this->client->post("{$this->api_url}chat/completions", [
-            'headers' => $this->headers,
-            'json'    => [
+    protected function getPrompt():string{
+        return "Identifique o erro relacionado a programação no texto a seguinte e retorne a solução ideal para a correção dele,
+                caso não haja, responda de forma humorada relacionado ao texto: ";
+    }
+
+    public function isValidModel(string $model): bool
+    {
+        return in_array($model, $this->validModels);
+    }
+    protected function buildPayload(string $prompt, string $model = 'gpt-4.1'){  
+        return [
                 'model' => $model, 
                 'message' => [
+                    ['role' => 'system', 'content' => $this->getPrompt()],
                     ['role' => 'user', 'content' => $prompt],
-                ],
             ],
-        ]);
-
-        $data = json_decode($response->getBody(), true);
-
-        return $data['choices'][0]['message']['content'] ?? null;
+        ];
     }
 }

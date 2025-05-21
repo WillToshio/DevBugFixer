@@ -150,5 +150,7 @@ database.default.DBPrefix =
 # API
 #--------------------------------------------------------------------
 
+# routeAIURL =
+# routeAISecretKey = 'put your secret key'
 # openAIURL = 
 # openAISecretKey  = 'put your secret key'

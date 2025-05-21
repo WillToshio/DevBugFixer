@@ -42,7 +42,8 @@ $(document).ready(function () {
         }
     });
 
-    app.form.el.errorMessageForm.submit(() => {
+    app.form.el.errorMessageForm.submit((e) => {
+        e.preventDefault();
         let texto = $('.cmd-textarea').val();
         // Remove o prefixo 'C:\> ' do início, se existir
         if (texto.startsWith('C:\\> ')) {
@@ -62,7 +63,7 @@ $(document).ready(function () {
 
             },
             error: function(data){
-                _alert(lang('An unexpected error occurred. Please try again later.'), true)
+                alert(lang('An unexpected error occurred. Please try again later.'), true)
             }
         })
     })
