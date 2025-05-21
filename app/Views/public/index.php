@@ -20,7 +20,6 @@
     </script>
 </head>
 <body>
-<div class="app-error-message-form">
     <header>
         <div class="container h-100 p-0 m-0">
             <h1><i class="fa-solid fa-terminal"></i> DevBugFixer</h1>
@@ -33,7 +32,7 @@
             <div class="col-lg-10">
                 <h2>C:\> Cole abaixo a mensagem de erro que você recebeu</h2>
                 
-                <form method="post" action="" class="error-query-form">
+                <form method="post" class="error-query-form">
                     <div class="cmd-textarea-container">
                         <textarea 
                             class="cmd-textarea" 
@@ -108,7 +107,6 @@
             <a href="<?= base_url('/about');?>">C:\> Sobre o DevBugFixer</a>
         </div>
     </footer>
-</div>
 
     <!-- JS -->
     <script src="<?= base_url('assets/vendors/bootstrap/js/bootstrap.min.js')?>"></script>

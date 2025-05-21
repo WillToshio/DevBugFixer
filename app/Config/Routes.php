@@ -33,7 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
-
+$routes->post('/query-error', 'OpenAI::chatCompletions');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -4,7 +4,7 @@ $(document).ready(function () {
             queryError: app.baseUrl + '/query-error', 
         },
         el:{
-            errorMessageForm: $('.app-error-message-form .main-content .error-query-form'),
+            errorMessageForm: $('form.error-query-form'),
         }
     }
 
@@ -42,10 +42,28 @@ $(document).ready(function () {
         }
     });
 
-    app.form.el.errorMessageForm.on('submit',() => {
+    app.form.el.errorMessageForm.submit(() => {
+        let texto = $('.cmd-textarea').val();
+        // Remove o prefixo 'C:\> ' do início, se existir
+        if (texto.startsWith('C:\\> ')) {
+            texto = texto.replace(/^C:\\> /, '');
+        }
         var formData = {
-            prompt: $('.cmd-textarea').text(),
+            prompt: texto,
         };
-        console.log(formData);
+        $.ajax({
+            url: app.form.path.queryError,
+            type: 'post',
+            data: formData,
+            beforeSend: function(){
+
+            },
+            success: function(result){
+
+            },
+            error: function(data){
+                _alert(lang('An unexpected error occurred. Please try again later.'), true)
+            }
+        })
     })
 });
