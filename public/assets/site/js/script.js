@@ -60,6 +60,14 @@ $(document).ready(function () {
 
             },
             success: function(result){
+                var r = JSON.stringify(result);
+                if(r.error){
+                    alert(r.message);
+                    return ;
+                }
+                $('div.cmd-code').text() = r.data.codigo_exemplo
+                $('p.cmd-description').text() = r.data.descricao
+                $('p.cmd-sugestion').text() = r.data.sugestao
 
             },
             error: function(data){

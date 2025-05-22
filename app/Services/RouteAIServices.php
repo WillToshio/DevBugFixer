@@ -87,6 +87,12 @@ class RouteAIServices extends BaseAIServices {
             ],
         ];
     }
+    protected function tratandoResposta($raw){
+        $raw = preg_replace('/[[:cntrl:]]/', '', $raw); // remove caracteres de controle
+        $raw = trim($raw, "\xEF\xBB\xBF\""); // remove BOM e aspas duplicadas
+        
+        return json_decode($raw, true);
+    }
 
     public function chatCompletions(string $prompt, string $model = 'mistralai/mistral-7b-instruct:free'): array
     {
@@ -107,9 +113,13 @@ class RouteAIServices extends BaseAIServices {
 
             $statusCode = $response->getStatusCode();
             $body = json_decode($response->getBody(), true);
-
+            
             if ($statusCode >= 200 && $statusCode < 300) {
-                return responseSuccess($body['choices'][0]['message']['content'], [], ['status'  => $statusCode, 'prompt' => $prompt, 'model' => $model]);
+               
+                $response = $this->tratandoResposta($body['choices'][0]['message']['content']);
+                
+                
+                return responseSuccess("resposta gerada com sucesso", [], (array) $response);
             }
 
             // Verifica se o erro é de limite excedido

@@ -16,9 +16,7 @@ class OpenAI extends BaseController
         $formData = $this->request->getPost();
 
         $response = $this->routeai->chatCompletions($formData['prompt']);
-        echo var_dump($response);
-        die;
-
         
+        return json_encode($response);
     }
 }

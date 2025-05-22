@@ -68,13 +68,20 @@ abstract class BaseAIServices {
     abstract protected function buildPayload(string $prompt, string $model): array;
 
     protected function getPrompt(): string{
-        return "Você é um assistente técnico. Quando receber uma mensagem de erro, analise a causa, explique o que está errado e forneça um exemplo funcional de código que resolve ou evita esse problema, usando boas práticas de programação.  
+        return 'Você é um assistente técnico. Quando receber uma mensagem de erro, analise a causa, explique o que está errado e forneça um exemplo funcional de código que resolve ou evita esse problema, usando boas práticas de programação.
 
-                - Se identificar que o texto descreve um erro ou problema técnico, explique claramente qual é o problema, sua causa provável e forneça a melhor solução ou procedimento para corrigir ou evitar esse erro.  
-                - Se o texto não contiver um erro ou problema técnico, responda de forma leve e humorada para manter o diálogo descontraído.  
-                - Sempre que possível, forneça exemplos práticos, boas práticas ou recomendações para ajudar o usuário a resolver o problema ou entender melhor o contexto.
-                - Sempre que possível, forneça a resposta na mesma lingua da pergunta
-                Aqui está o texto para analisar: ";
+            - Responda **exclusivamente** em JSON com as seguintes chaves:
+                * "descricao" (explicação do erro)
+                * "sugestao" (como corrigir)
+                * "codigo_exemplo" (exemplo funcional, dentro de uma única string JSON com quebras de linha escapadas com `\\n` e todas as barras invertidas escapadas como `\\\\`)
+            - Se identificar que o texto **não contiver** um erro técnico, responda com:
+                * "piada" (mensagem leve e bem-humorada)
+            - A resposta deve estar **totalmente dentro de um JSON válido**.
+            - **Nunca inclua texto fora do JSON.**
+            - **Use aspas duplas** para todas as strings e **escape corretamente barras invertidas** (`\\`) e **quebras de linha como `\\n`**.
+            - Não use trechos soltos como `php\\n`, `...`, ou `<?php` fora de string.
+
+                Aqui está o texto para analisar:';
     }
 
     public function chatCompletions(string $prompt, string $model): array
