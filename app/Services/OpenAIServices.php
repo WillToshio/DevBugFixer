@@ -14,7 +14,7 @@ class OpenAIServices extends BaseAIServices {
     private array $validModels =['gpt-4.1', 'gpt-3.5-turbo'];
 
     public function __construct(){
-        parent::__construct(getenv('openAIURL'), getenv('openAISecretKey'), \Config\Services::curlrequest(),  $this->getHeaders());
+        parent::__construct(getenv('openAIURL'), getenv('openAISecretKey'), \Config\Services::curlrequest());
     }
 
     /**
@@ -36,7 +36,11 @@ class OpenAIServices extends BaseAIServices {
     {
         return in_array($model, $this->validModels);
     }
-    protected function buildPayload(string $prompt, string $model = 'gpt-4.1'){  
+    /**
+     * Summary of buildPayload
+     * {@inheritdoc}
+     */
+    protected function buildPayload(string $prompt, string $model){  
         return [
                 'model' => $model, 
                 'message' => [

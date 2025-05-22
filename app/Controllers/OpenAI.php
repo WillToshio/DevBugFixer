@@ -6,7 +6,7 @@ class OpenAI extends BaseController
 {
     public function __construct(){
         parent::initController(\Config\Services::request(), \Config\Services::response(), \Config\Services::logger());
-        $this->openai = new \App\Services\OpenAIServices();
+        $this->routeai = new \App\Services\RouteAIServices();
     }
 
     public function chatCompletions() {
@@ -15,8 +15,10 @@ class OpenAI extends BaseController
         }
         $formData = $this->request->getPost();
 
-        $response = $this->openai->chatCompletions($formData['prompt']);
+        $response = $this->routeai->chatCompletions($formData['prompt']);
         echo var_dump($response);
         die;
+
+        
     }
 }

@@ -5,36 +5,36 @@ namespace App\Services;
 abstract class BaseAIServices {
     /**
      * Summary of client
-     * @param object
+     * @var object
      * get a curlrequest class 
      */
     protected $client;
     /**
      * Summary of apiKey
-     * @param string 
+     * @var string 
      * get a apikey value
      */
     protected $apiKey;
     /**
      * Summary of headers
-     * @param array
+     * @var array
      */
     protected $headers;
     /**
      * Summary of api_url
-     * @param string
+     * @var string
      * get url value
      */
     protected $api_url;
     /**
      * Summary of provider
-     * @param string
+     * @var string
      * get ai provider
      */
     protected $provider;
     /**
      * Summary of model
-     * @param string
+     * @var string
      * get ai model
      */
     protected $model;
@@ -44,13 +44,11 @@ abstract class BaseAIServices {
      * @param string $api_url
      * @param string $api_key
      * @param CURLRequest $client
-     * @param array $header
      */
-    public function __construct(string $api_url,string $api_key,CURLRequest $client, array $heades){
+    public function __construct(string $api_url,string $api_key, $client){
         $this->api_url = $api_url;
         $this->apiKey =  $api_key;
         $this->client =  $client; 
-        $this->headers = $heades;
     }
 
     /**
@@ -70,8 +68,7 @@ abstract class BaseAIServices {
     abstract protected function buildPayload(string $prompt, string $model): array;
 
     protected function getPrompt(): string{
-        return "Você é um assistente especialista em análise e diagnóstico de problemas relacionados à programação e desenvolvimento de software em geral.  
-                Seu trabalho é analisar mensagens, logs, códigos, erros ou textos relacionados a qualquer tecnologia, incluindo backend, frontend, DevOps, bancos de dados, APIs, infraestrutura, sistemas operacionais, redes, entre outros.  
+        return "Você é um assistente técnico. Quando receber uma mensagem de erro, analise a causa, explique o que está errado e forneça um exemplo funcional de código que resolve ou evita esse problema, usando boas práticas de programação.  
 
                 - Se identificar que o texto descreve um erro ou problema técnico, explique claramente qual é o problema, sua causa provável e forneça a melhor solução ou procedimento para corrigir ou evitar esse erro.  
                 - Se o texto não contiver um erro ou problema técnico, responda de forma leve e humorada para manter o diálogo descontraído.  
@@ -93,7 +90,7 @@ abstract class BaseAIServices {
             $response = $this->client->post(
                 "{$this->api_url}/chat/completions",
                 [
-                    'headers' => $this->headers,
+                    'headers' => $this->getHeaders(),
                     'json'    => $this->buildPayload($prompt, $model),
                 ]
             );
