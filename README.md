@@ -1,4 +1,4 @@
-# 🐛 DevBugFixer
+# 🐛 [DevBugFixer](https://devbugfixer.infinityfreeapp.com)
 
 DevBugFixer é uma ferramenta interativa criada para desenvolvedores que enfrentam bugs diariamente. Inspirado na estética de terminais como o CMD, ele proporciona um ambiente visual retrô e prático para testar, simular e registrar problemas e soluções com foco em produtividade e aprendizado.
 
