@@ -13,6 +13,7 @@
     />
     <link href="<?= base_url('assets/vendors/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?= base_url('assets/site/css/form.css')?>" rel="stylesheet">
+    <link href="<?= base_url('assets/site/css/loader.css')?>" rel="stylesheet">
     <script text="type/JavaScript">
         const app = {
             baseUrl: '<?= base_url(); ?>',
@@ -50,7 +51,7 @@
                     <!-- Área de Resultado -->
                     <div class="results mt-4">
                         <!-- Descrição do Erro -->
-                        <div class="cmd-section">
+                        <div class="cmd-section collapse">
                             <div class="cmd-section-header">
                                 <h5 class="cmd-section-title">C:\> Descrição do erro</h5>
                             </div>
@@ -60,7 +61,7 @@
                         </div>
                         
                         <!-- Sugestão de Correção -->
-                        <div class="cmd-section">
+                        <div class="cmd-section collapse">
                             <div class="cmd-section-header">
                                 <h5 class="cmd-section-title">C:\> Sugestão de correção</h5>
                             </div>
@@ -70,7 +71,7 @@
                         </div>
                         
                         <!-- Exemplo de Código -->
-                        <div class="cmd-section">
+                        <div class="cmd-section collapse">
                             <div class="cmd-section-header">
                                 <h5 class="cmd-section-title">C:\> Exemplo de código</h5>
                             </div>
@@ -91,7 +92,19 @@
             <a href="<?= base_url('/about');?>">C:\> Sobre o DevBugFixer</a>
         </div>
     </footer>
-
+    <div class="lmask">
+        <div class="loading-container">
+            <div class="spinner-border text-success mb-3" role="status"></div>
+            <div class="loading-text">
+                <p class="terminal-text mb-2">Analisando erro<span class="loading-dots">.</span></p>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                </div>
+                <p class="terminal-text progress-percentage">0%</p>
+                <p class="terminal-text mt-3 small">C:\&gt; Processando dados<span class="cursor">_</span></p>
+            </div>
+        </div>
+    </div>
     <!-- JS -->
     <script src="<?= base_url('assets/vendors/bootstrap/js/bootstrap.min.js')?>"></script>
     <script src="<?= base_url('assets/vendors/jquery/jquery-3.6.0.min.js')?>"></script>

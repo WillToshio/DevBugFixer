@@ -1,0 +1,90 @@
+/* Estilos para o modal de carregamento (lmask) */
+.lmask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-container {
+  background-color: #000;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  padding: 25px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+/* Estilos de texto e elementos */
+.terminal-text {
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  margin: 0;
+}
+
+.loading-dots {
+  display: inline-block;
+  min-width: 15px;
+}
+
+.progress {
+  height: 10px;
+  background-color: #003300;
+}
+
+.progress-bar {
+  background-color: #00ff00;
+  transition: width 0.3s ease-out;
+}
+
+.progress-percentage {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.small {
+  font-size: 0.9rem;
+}
+
+/* Cursor piscante */
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Sobrescrever estilos do Bootstrap para manter o tema */
+.spinner-border.text-success {
+  color: #00ff00 !important;
+}
+
+.bg-success {
+  background-color: #00ff00 !important;
+}
+
+.btn-success {
+  background-color: #000;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+}
+
+.btn-success:hover {
+  background-color: #003300;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+}

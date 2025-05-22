@@ -70,16 +70,21 @@ abstract class BaseAIServices {
     protected function getPrompt(): string{
         return 'Você é um assistente técnico. Quando receber uma mensagem de erro, analise a causa, explique o que está errado e forneça um exemplo funcional de código que resolve ou evita esse problema, usando boas práticas de programação.
 
-            - Responda **exclusivamente** em JSON com as seguintes chaves:
-                * "descricao" (explicação do erro)
-                * "sugestao" (como corrigir)
-                * "codigo_exemplo" (exemplo funcional, dentro de uma única string JSON com quebras de linha escapadas com `\\n` e todas as barras invertidas escapadas como `\\\\`)
-            - Se identificar que o texto **não contiver** um erro técnico, responda com:
-                * "piada" (mensagem leve e bem-humorada)
-            - A resposta deve estar **totalmente dentro de um JSON válido**.
-            - **Nunca inclua texto fora do JSON.**
-            - **Use aspas duplas** para todas as strings e **escape corretamente barras invertidas** (`\\`) e **quebras de linha como `\\n`**.
-            - Não use trechos soltos como `php\\n`, `...`, ou `<?php` fora de string.
+                - Responda **exclusivamente** em JSON com as seguintes chaves:
+                * "descricao" (explicação clara e objetiva do erro)
+                * "sugestao" (como corrigir ou evitar o erro)
+                * "codigo_exemplo" (exemplo funcional de código, formatado como **uma única string JSON válida**, com **quebras de linha escapadas com `\\n`** e todas as **barras invertidas escapadas como `\\\\`**)
+
+                - O campo "codigo_exemplo" deve conter apenas o código puro (sem marcação Markdown como ```php ou ```javascript e etc, sem usar <?php fora da string).
+
+                - Nunca inclua texto fora do JSON.
+
+                - Use sempre **aspas duplas** para as chaves e valores do JSON.
+
+                - Se identificar que o texto **não contiver um erro técnico**, responda com:
+                * "piada": uma mensagem leve e bem-humorada, dentro de um JSON válido.
+
+                - Certifique-se de que a resposta seja um **JSON válido completo**, com todas as chaves exigidas.
 
                 Aqui está o texto para analisar:';
     }

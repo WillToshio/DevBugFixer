@@ -90,7 +90,8 @@ class RouteAIServices extends BaseAIServices {
     protected function tratandoResposta($raw){
         $raw = preg_replace('/[[:cntrl:]]/', '', $raw); // remove caracteres de controle
         $raw = trim($raw, "\xEF\xBB\xBF\""); // remove BOM e aspas duplicadas
-        
+        $raw  = preg_replace('/```[a-zA-Z]*\n?/', '', $raw);
+        $raw  = preg_replace('/```/', '', $raw );
         return json_decode($raw, true);
     }
 
