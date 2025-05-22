@@ -75,10 +75,20 @@ $(document).ready(function () {
                     return ;
                 }
 
-                $('div.cmd-code').html('<pre><code>' + r.data.codigo_exemplo + '</code></pre>')
-                $('p.cmd-description').text(r.data.descricao)
-                $('p.cmd-sugestion').text(r.data.sugestao)
-                $('.cmd-section.collapse').addClass('show');
+                if (typeof r.data.codigo_exemplo !== 'undefined') {
+                    $('div.cmd-code').html('<pre><code>' + r.data.codigo_exemplo + '</code></pre>');
+                    $('.cmd-section.collapse').eq(2).addClass('show');
+                }
+
+                if (typeof r.data.descricao !== 'undefined') {
+                    $('p.cmd-description').text(r.data.descricao);
+                    $('.cmd-section.collapse').eq(0).addClass('show');
+                }
+
+                if (typeof r.data.sugestao !== 'undefined') {
+                    $('p.cmd-sugestion').text(r.data.sugestao);
+                    $('.cmd-section.collapse').eq(1).addClass('show');
+                }
             },
             error: function(data){
                 alert(lang('An unexpected error occurred. Please try again later.'), true)
